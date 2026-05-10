@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://ypingmoe.github.io/personal/sitemap.xml
+Host: https://ypingmoe.github.io/personal

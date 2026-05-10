@@ -22,8 +22,8 @@
   --color-surface: var(--surface);
   --color-muted: var(--muted);
   --color-edge: var(--edge);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Consolas", "Liberation Mono", Menlo, Monaco, monospace;
 }
 
 html,
@@ -42,7 +42,7 @@ body {
     radial-gradient(circle at 3px 3px, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 0);
   background-size: 24px 24px, 32px 32px;
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .skill-card {
