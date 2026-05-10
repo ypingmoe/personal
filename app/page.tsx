@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Script from "next/script";
 import { AboutSection } from "@/app/components/AboutSection";
 import { Footer } from "@/app/components/Footer";
 import { Header } from "@/app/components/Header";
-import { ProjectsSection } from "@/app/components/ProjectsSection";
 import { SkillsSection } from "@/app/components/SkillsSection";
 
 const expertise = [
@@ -31,9 +31,11 @@ const expertise = [
 ];
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com/your-username", icon: "github" },
-  { name: "LinkedIn", href: "https://linkedin.com/in/your-profile", icon: "linkedin" },
-  { name: "X", href: "https://x.com/your-handle", icon: "x" },
+  { name: "GitHub", href: "https://github.com/ypingmoe", icon: "github" },
+  { name: "Gmail", href: "mailto:ypingmoe@gmail.com", icon: "gmail" },
+  { name: "Telegram", href: "https://t.me/ypingmoe", icon: "telegram" },
+  // { name: "LinkedIn", href: "https://linkedin.com/in/ypingmoe", icon: "linkedin" },
+  // { name: "X", href: "https://x.com/ypingmoe", icon: "x" },
 ];
 
 const projects = [
@@ -58,6 +60,25 @@ const projects = [
 ];
 
 export default function Home() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ypingmoe.github.io/personal";
+  const personStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Yping Moe",
+    jobTitle: "Full-Stack Developer and AI Developer",
+    url: siteUrl,
+    sameAs: ["https://github.com/ypingmoe"],
+    knowsAbout: [
+      "full-stack developer",
+      "ai developer",
+      "c# developer",
+      "java developer",
+      "trading bot developer",
+      "blockchain and ai master",
+      "polymarket bot developer",
+    ],
+  };
+
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window === "undefined") {
       return "light";
@@ -79,12 +100,17 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header onToggleTheme={toggleTheme} />
+      <Script
+        id="person-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
+      />
+      <Header onToggleTheme={toggleTheme} theme={theme} />
 
       <main id="home" className="mx-auto flex w-full max-w-6xl flex-col px-6 pb-16 pt-14">
         <AboutSection />
         <SkillsSection expertise={expertise} />
-        <ProjectsSection projects={projects} />
+        {/* <ProjectsSection projects={projects} /> */}
       </main>
 
       <Footer socialLinks={socialLinks} />

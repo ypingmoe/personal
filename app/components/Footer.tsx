@@ -1,4 +1,10 @@
-import { GithubIcon, LinkedinIcon, XIcon } from "@/app/components/icons";
+import {
+  GmailIcon,
+  GithubIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  XIcon,
+} from "@/app/components/icons";
 
 type SocialItem = {
   name: string;
@@ -13,6 +19,8 @@ type FooterProps = {
 function SocialIcon({ icon }: { icon: string }) {
   if (icon === "github") return <GithubIcon />;
   if (icon === "linkedin") return <LinkedinIcon />;
+  if (icon === "gmail") return <GmailIcon />;
+  if (icon === "telegram") return <TelegramIcon />;
   return <XIcon />;
 }
 
@@ -21,8 +29,7 @@ export function Footer({ socialLinks }: FooterProps) {
     <footer id="contact" className="border-t border-edge bg-surface">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-5 px-6 py-8 sm:flex-row">
         <p className="text-sm text-muted">
-          © {new Date().getFullYear()} Dev Portfolio. Built with Next.js, TypeScript, and Tailwind
-          CSS.
+          © {new Date().getFullYear()} ypingmoe
         </p>
         <div className="flex items-center gap-3">
           {socialLinks.map((social) => (
