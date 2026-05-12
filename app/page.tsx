@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Script from "next/script";
 import { AboutSection } from "@/app/components/AboutSection";
+import { ExperienceSection } from "@/app/components/ExperienceSection";
 import { Footer } from "@/app/components/Footer";
 import { Header } from "@/app/components/Header";
 import { SkillsSection } from "@/app/components/SkillsSection";
@@ -109,6 +110,7 @@ export default function Home() {
 
       <main id="home" className="mx-auto flex w-full max-w-6xl flex-col px-6 pb-16 pt-14">
         <AboutSection />
+        <ExperienceSection />
         <SkillsSection expertise={expertise} />
         {/* <ProjectsSection projects={projects} /> */}
       </main>

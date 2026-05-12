@@ -20,9 +20,6 @@ export function Header({ onToggleTheme, theme }: HeaderProps) {
             <a className="hover-link" href="#skills">
               Skills
             </a>
-            <a className="hover-link" href="#projects">
-              Projects
-            </a>
             <a className="hover-link" href="#contact">
               Contact
             </a>
@@ -37,7 +34,7 @@ export function Header({ onToggleTheme, theme }: HeaderProps) {
               <SunIcon />
               <MoonIcon />
             </span>
-            <span>{theme}</span>
+            <span>{theme === "light" ? "Light" : "Dark"}</span>
           </button>
         </div>
       </div>
