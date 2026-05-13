@@ -110,7 +110,7 @@ export default function Home() {
 
       <main id="home" className="mx-auto flex w-full max-w-6xl flex-col px-6 pb-16 pt-14">
         <AboutSection />
-        <ExperienceSection />
+        {/* <ExperienceSection /> */}
         <SkillsSection expertise={expertise} />
         {/* <ProjectsSection projects={projects} /> */}
       </main>

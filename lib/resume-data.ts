@@ -27,7 +27,7 @@ export const profile = {
   roleBadge: "Full-Stack Developer",
   heroTitle: "Full-stack developer and AI developer building high-performance products.",
   summary:
-    "I am a full-stack developer, AI developer, and C#/Java developer focused on scalable software, automation, and intelligent systems. I build trading bots, blockchain + AI solutions, and specialized Polymarket bot workflows for production use cases.",
+    "Full-stack engineer with 9+ years building and shipping SaaS products across frontend, backend, and data systems. Experienced in React/Next.js, TypeScript, Go, PostgreSQL, and cloud-based architectures, including shipping production features that integrate AI/LLM APIs, prompting, and evaluation guardrails where product requirements call for them. Strong track record of delivering user-facing features quickly, improving reliability with asynchronous pipelines, and collaborating in fast-moving remote teams.",
 };
 
 export const coreFocus: string[] = [
