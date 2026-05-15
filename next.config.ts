@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
   },
   basePath,
   assetPrefix: basePath,
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;
