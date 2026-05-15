@@ -1,45 +1,37 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { Roboto_Mono } from "next/font/google";
+import { StyledComponentsRegistry } from "@/lib/registry";
+import { GlobalStyles } from "@/app/styles/GlobalStyles";
+import { site } from "@/lib/site-data";
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  display: "optional",
+  variable: "--font-roboto-mono",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://ypingmoe.github.io/personal"),
-  title: {
-    default: "Yping Moe | Full-Stack & AI Developer",
-    template: "%s | Yping More",
-  },
-  description:
-    "Full-stack developer and AI developer specializing in C#, Java, trading bot development, blockchain + AI systems, and Polymarket bot development.",
-  keywords: [
-    "full-stack developer",
-    "ai developer",
-    "c# developer",
-    "java developer",
-    "trading bot developer",
-    "blockchain and ai master",
-    "polymarket bot developer",
-    "next.js developer portfolio",
-  ],
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"),
+  title: "ypingmoe",
+  description: site.summary,
   openGraph: {
-    title: "Yping Moe | Full-Stack & AI Developer",
-    description:
-      "Portfolio of a full-stack developer and AI developer building C#, Java, trading bots, blockchain AI systems, and Polymarket bots.",
-    url: "/",
-    siteName: "Yping Moe Portfolio",
+    title: "ypingmoe",
+    description: site.summary,
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Yping Moe | Full-Stack & AI Developer",
-    description:
-      "Full-stack developer, AI developer, C#/Java developer, trading bot developer, blockchain + AI builder.",
+    card: "summary",
+    title: "ypingmoe",
+    description: site.summary,
   },
   robots: {
     index: true,
     follow: true,
+  },
+  other: {
+    "color-scheme": "light dark",
   },
 };
 
@@ -49,8 +41,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={robotoMono.variable}>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <meta
+          name="theme-color"
+          content="#ffffff"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#111111"
+          media="(prefers-color-scheme: dark)"
+        />
+      </head>
+      <body>
+        <StyledComponentsRegistry>
+          <GlobalStyles />
+          {children}
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
