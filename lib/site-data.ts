@@ -26,7 +26,7 @@ export const site = {
   experience: [
     {
       title: "Full-Stack Web3 Developer",
-      company: "Jito",
+      company: "Jitura",
       location: "Remote",
       period: "2024–2025",
       bullets: [
