@@ -1,9 +1,38 @@
 "use client";
 
+import { SiteControls } from "@/app/components/SiteControls";
+import { getCopy, type Locale } from "@/lib/i18n";
+import {
+  LOCALE_STORAGE_KEY,
+  readStoredLocale,
+  readStoredTheme,
+  THEME_STORAGE_KEY,
+  type ThemeMode,
+} from "@/lib/preferences";
 import { site } from "@/lib/site-data";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export function PersonalSite() {
+  const [theme, setTheme] = useState<ThemeMode>("system");
+  const [locale, setLocale] = useState<Locale>("en");
+  const copy = getCopy(locale);
+
+  useEffect(() => {
+    setTheme(readStoredTheme());
+    setLocale(readStoredLocale());
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+  }, [locale]);
+
   const personStructuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -12,8 +41,8 @@ export function PersonalSite() {
     email: site.email,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Steinbach",
-      addressRegion: "MB",
+      addressLocality: "Burnaby",
+      addressRegion: "BC",
       addressCountry: "CA",
     },
     sameAs: site.socialLinks.filter((link) => link.href.startsWith("http")).map((link) => link.href),
@@ -25,13 +54,20 @@ export function PersonalSite() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
       />
+      <SiteControls
+        theme={theme}
+        locale={locale}
+        labels={copy.controls}
+        onThemeChange={setTheme}
+        onLocaleChange={setLocale}
+      />
       <Header>
-        <h1>{site.name}</h1>
+        <h1>🔥{site.name}</h1>
         <Tagline>
-          {site.tagline.map((segment, index) => (
+          {copy.tagline.map((segment, index) => (
             <span key={segment}>
               {segment}
-              {index < site.tagline.length - 1 ? "\u00a0" : ""}
+              {index < copy.tagline.length - 1 ? "\u00a0" : ""}
             </span>
           ))}
         </Tagline>
@@ -39,11 +75,11 @@ export function PersonalSite() {
       </Header>
 
       <Main>
-        <p>{site.summary}</p>
+        <p>{copy.summary}</p>
 
         <ExperienceSection>
-          <ExperienceHeading>{site.experienceTitle}</ExperienceHeading>
-          {site.experience.map((role) => (
+          <ExperienceHeading>{copy.experienceTitle}</ExperienceHeading>
+          {copy.experience.map((role) => (
             <ExperienceBlock key={`${role.company}-${role.period}`}>
               <RoleLine>
                 <RoleHighlight>{role.title}</RoleHighlight>
@@ -80,7 +116,7 @@ export function PersonalSite() {
           ))}
         </SocialLinks>
         <CopyrightBar>
-          © {new Date().getFullYear()} {site.copyrightHolder}. All rights reserved.
+          © {new Date().getFullYear()} {site.copyrightHolder}. {copy.rightsReserved}
         </CopyrightBar>
       </SiteFooter>
     </>

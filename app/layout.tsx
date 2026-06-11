@@ -3,6 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import { StyledComponentsRegistry } from "@/lib/registry";
 import { GlobalStyles } from "@/app/styles/GlobalStyles";
 import { site } from "@/lib/site-data";
+import { themeInitScript } from "@/lib/preferences";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -41,8 +42,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={robotoMono.variable}>
+    <html lang="en" data-theme="system" className={robotoMono.variable}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <meta name="color-scheme" content="light dark" />
         <meta
           name="theme-color"

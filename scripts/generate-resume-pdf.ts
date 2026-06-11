@@ -23,6 +23,7 @@ function contactLine(): string {
     .map((s) => {
       if (s.icon === "gmail") return "ypingmoe@gmail.com";
       if (s.icon === "github") return "github.com/ypingmoe";
+      if (s.icon === "twitter") return "x.com/ypingmoe";
       if (s.icon === "telegram") return "t.me/ypingmoe";
       return s.href.replace(/^https?:\/\//, "");
     })

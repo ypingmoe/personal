@@ -24,65 +24,78 @@ export type SocialLink = {
 };
 
 export const profile = {
-  roleBadge: "Full-Stack Developer",
-  heroTitle: "Full-stack developer and AI developer building high-performance products.",
+  roleBadge: "Full-Stack · AI Engineer",
+  heroTitle: "Full-stack engineer building SaaS and AI-powered products.",
   summary:
-    "Full-stack engineer with 9+ years building and shipping SaaS products across frontend, backend, and data systems. Experienced in React/Next.js, TypeScript, Go, PostgreSQL, and cloud-based architectures, including shipping production features that integrate AI/LLM APIs, prompting, and evaluation guardrails where product requirements call for them. Strong track record of delivering user-facing features quickly, improving reliability with asynchronous pipelines, and collaborating in fast-moving remote teams.",
+    "8+ years building web apps, APIs, dashboards, and cloud systems. React, Next.js, TypeScript, Node.js, Python, FastAPI, PostgreSQL, AWS. LLM chatbots, document search, summarization, and workflow automation.",
 };
 
 export const coreFocus: string[] = [
-  "AI product engineering and LLM-powered automation",
-  "C#, Java, and Python services for reliable backend systems",
-  "Trading bot developer for data-driven execution strategies",
-  "Blockchain and AI master workflows, including Polymarket bot development",
+  "React, Next.js, TypeScript",
+  "Node.js, Python, FastAPI, Django",
+  "PostgreSQL, MongoDB, Redis",
+  "OpenAI, RAG, LLM workflows",
+  "AWS, Docker, CI/CD",
 ];
 
 export const education: EducationItem[] = [
-  { institution: "Kyoto Computer School", period: "2012-2014" },
+  { institution: "B.S. Computer Science — University of Manitoba", period: "2012–2016" },
 ];
 
 export const expertise: ExpertiseItem[] = [
   {
-    name: "AI Product Development",
-    description: "LLM workflow design, prompt orchestration, and API integration.",
+    name: "Frontend",
+    description: "React, Next.js, TypeScript, TailwindCSS.",
+    mark: "FE",
+  },
+  {
+    name: "Backend",
+    description: "Node.js, Python, FastAPI, Django, REST APIs.",
+    mark: "BE",
+  },
+  {
+    name: "AI / LLM",
+    description: "OpenAI, RAG, search, summarization, automation.",
     mark: "AI",
   },
   {
-    name: "C# Backend Engineering",
-    description: "Robust services with clean architecture, async processing, and APIs.",
-    mark: "C#",
-  },
-  {
-    name: "Python Automation",
-    description: "Data pipelines, model tooling, and scripting for developer velocity.",
-    mark: "PY",
-  },
-  {
-    name: "TypeScript Frontend",
-    description: "Modern web UI built with Next.js, React, and Tailwind CSS.",
-    mark: "TS",
+    name: "DevOps",
+    description: "AWS, Docker, Kubernetes, GitHub Actions.",
+    mark: "Ops",
   },
 ];
 
 export const experiences: ExperienceItem[] = [
   {
-    title: "Full-Stack Web3 Developer",
-    company: "BNRY / BinaryBit",
-    period: "10/2023–01/2026",
-    location: "Remote, Germany",
+    title: "Senior Full-Stack Developer / AI Engineer",
+    company: "TechNova",
+    period: "2021–2025",
+    location: "Vancouver, BC",
     bullets: [
-      "Built a production BNB bridge platform with on-chain smart contracts, swap functionality between BNRY and BSC tokens, and a full-featured frontend.",
+      "Built SaaS dashboards and AI document workflows with React, Next.js, Python, FastAPI, and PostgreSQL.",
+      "Integrated LLM chatbots, search, and automation—reduced manual work by ~40%.",
+      "Optimized APIs and PostgreSQL queries; cut key endpoint response times 25–35%.",
     ],
   },
   {
-    title: "Solana DeFi Engineer",
-    company: "Multiple DeFi Teams",
-    period: "2020–2023",
-    location: "Remote, US",
+    title: "Full-Stack Developer",
+    company: "BrightPath AI Solutions",
+    period: "2018–2021",
+    location: "Remote",
     bullets: [
-      "Integrated Meteora DLMM active pool, open positions management, and DLMM performance tracking for WiseTrade.",
-      "Built Memepad launchpad with Meteora-integrated token smart contracts, staking rewards, and holder reward distribution.",
-      "Built Pumpfun bonding-curve launchpad fork, including backend, Solana Web3 integration, and liquidity seeding logic.",
+      "Delivered SaaS platforms and CRM tools for 10+ clients with React, Node.js, and Django.",
+      "Built REST APIs and integrations with Stripe, Twilio, and SendGrid.",
+      "Improved page load times 20–30% through frontend and database tuning.",
+    ],
+  },
+  {
+    title: "Junior Full-Stack Developer",
+    company: "KleinTech",
+    period: "2016–2018",
+    location: "Remote",
+    bullets: [
+      "Built websites, admin panels, and e-commerce apps for small business clients.",
+      "Developed responsive UIs and backend features with React, Node.js, and MySQL.",
     ],
   },
 ];
@@ -90,10 +103,11 @@ export const experiences: ExperienceItem[] = [
 export const socialLinks: SocialLink[] = [
   { name: "GitHub", href: "https://github.com/ypingmoe", icon: "github" },
   { name: "Gmail", href: "mailto:ypingmoe@gmail.com", icon: "gmail" },
+  { name: "Twitter", href: "https://x.com/ypingmoe", icon: "twitter" },
   { name: "Telegram", href: "https://t.me/ypingmoe", icon: "telegram" },
 ];
 
 export const resumeMeta = {
-  fullName: "Yping Moe",
-  documentTitle: "Yping Moe — Resume",
+  fullName: "ypingmoe",
+  documentTitle: "ypingmoe — Resume",
 };
