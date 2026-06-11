@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 
 export type DropdownOption<T extends string> = {
   value: T;
@@ -43,7 +43,7 @@ export function Dropdown<T extends string>({
       }
     };
 
-    const onKeyDown = (event: KeyboardEvent) => {
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
@@ -68,7 +68,7 @@ export function Dropdown<T extends string>({
     onClose();
   };
 
-  const onTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+  const onTriggerKeyDown = (event: ReactKeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       if (isOpen) {
@@ -105,7 +105,7 @@ export function Dropdown<T extends string>({
 
   };
 
-  const onListKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+  const onListKeyDown = (event: ReactKeyboardEvent<HTMLUListElement>) => {
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setActiveIndex((index) => (index + 1) % options.length);
